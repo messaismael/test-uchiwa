@@ -1,13 +1,12 @@
 import "styles/global.scss";
+import { useRoutes } from "react-router-dom";
 
-import Home from "pages";
+import routes from "routes";
 
 function App(): JSX.Element {
-  return (
-    <div className="App">
-      <Home />
-    </div>
-  );
+  const content = useRoutes(routes);
+
+  return <div className="App">{content}</div>;
 }
 
 export default App;
