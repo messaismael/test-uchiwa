@@ -32,6 +32,10 @@ const RegisterPage = () => {
     setStep(step + 1);
   };
 
+  const onBack = () => {
+    setStep(step - 1);
+  };
+
   const onCancel = () => {
     navigate("/");
   };
@@ -249,8 +253,8 @@ const RegisterPage = () => {
             </div>
 
             <div className="flex justify-end gap-2 w-full">
-              <button onClick={onCancel} className="btn btn-dark">
-                Cancel
+              <button onClick={onBack} className="btn btn-dark">
+                Back
               </button>
               <button onClick={submit} className="btn btn-primary">
                 Register
@@ -288,11 +292,21 @@ const RegistrationStepper = ({ steps, currentStep }: StepProps) => {
         <li className="flex  md:w-full items-center">
           <span
             className={`flex items-center flex-shrink-0 ${
-              currentStep >= step.id ? "text-primary-600" : "text-primary"
+              currentStep > step.id
+                ? "text-green-500"
+                : currentStep < step.id
+                ? "text-primary"
+                : currentStep == step.id
+                ? "text-primary-600"
+                : ""
             }`}
           >
             {currentStep <= step.id && (
-              <span className="mr-2  w-5 h-5 flex items-center justify-center text-xs rounded-full ">
+              <span
+                className={`mr-2  w-5 h-5 flex items-center justify-center text-xs rounded-full 
+              ${currentStep == step.id ? "bg-primary-600 text-white" : ""}
+              `}
+              >
                 {step.id}
               </span>
             )}

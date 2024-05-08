@@ -41,11 +41,12 @@ export const Header: React.FC = () => {
 
   const onLogout = () => {
     AuthService.processLogout();
+    setIsAuthenticate(false);
   };
   useEffect(() => {
     setUser(AuthService.getUserInfos());
     setIsAuthenticate(AuthService.isLoggedIn);
-  });
+  }, []);
 
   return (
     <nav className="bg-secondary w-full z-20 top-0 start-0 border-b sticky border-gray-200 dark:border-gray-600">
@@ -97,7 +98,7 @@ export const Header: React.FC = () => {
                     <Menu.Item>
                       {({ active }) => (
                         <a
-                          href="/results"
+                          href="/result"
                           className={`${
                             active ? "text-primary-600" : "text-primary"
                           } group flex w-full items-center  px-2 py-2 text-sm`}

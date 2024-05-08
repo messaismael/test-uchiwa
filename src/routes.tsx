@@ -5,6 +5,7 @@ import LoginPage from "pages/auth/Login";
 import RegisterPage from "pages/auth/Register";
 import Bills from "pages/Bill";
 import OrderHistory from "pages/OrderHistory";
+import Result from "pages/Result";
 import Single from "pages/single";
 import Standard from "pages/standard";
 import { Navigate } from "react-router-dom";
@@ -39,6 +40,14 @@ const routes = [
         element: (
           <AuthGuard>
             <Bills />
+          </AuthGuard>
+        ),
+      },
+      {
+        path: "/result",
+        element: (
+          <AuthGuard>
+            <Result />
           </AuthGuard>
         ),
       },

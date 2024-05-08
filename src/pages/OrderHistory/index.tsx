@@ -33,13 +33,20 @@ const orderList = [
 const OrderHistory: React.FC = () => {
   return (
     <Container className="max-w-6xl mx-auto mt">
-      <div className="relative  overflow-x-auto shadow-md sm:rounded-lg mt-20 border">
+      <div className="relative  overflow-x-auto shadow-md sm:rounded-lg mt-20 border dark:border-gray-500 overflow-hidden">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <caption className="p-5 text-xl font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-            Order History
-            <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-              Browse a list of sequency ordered.
-            </p>
+            <div className="flex justify-between">
+              <div>
+                Order History
+                <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                  Browse a list of sequency ordered.
+                </p>
+              </div>
+              <div className="w-1/3">
+                <input className="input" placeholder="Search..." />
+              </div>
+            </div>
           </caption>
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
